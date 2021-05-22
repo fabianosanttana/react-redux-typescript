@@ -1,9 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import Counter from "features/counter/Counter";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
+const app: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -53,6 +53,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
-export default App;
+export default app;
