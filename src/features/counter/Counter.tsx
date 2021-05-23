@@ -31,13 +31,14 @@ const Counter: React.FC = (): JSX.Element => {
         >
           -
         </button>
-        <span className={styles.value} data-test="counter">
+        <span className={styles.value} data-testid="counter">
           {count}
         </span>
         <button
           type="button"
           className={styles.button}
           aria-label="Increment value"
+          data-testid="btn-increment-value"
           onClick={() => dispatch(increment())}
         >
           +
@@ -48,11 +49,13 @@ const Counter: React.FC = (): JSX.Element => {
           className={styles.textbox}
           aria-label="Set increment amount"
           value={incrementAmount}
+          data-testid="input-increment-custom-value"
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
         <button
           type="button"
           className={styles.button}
+          data-testid="btn-increment-custom-value"
           onClick={() => dispatch(incrementByAmount(incrementValue))}
         >
           Add Amount
@@ -74,6 +77,7 @@ const Counter: React.FC = (): JSX.Element => {
         <button
           type="button"
           className={styles.button}
+          data-testid="btn-reset-value"
           onClick={() => dispatch(resetCounter())}
         >
           Reset counter
