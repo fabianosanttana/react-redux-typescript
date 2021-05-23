@@ -8,7 +8,9 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
+  resetCounter,
 } from "./counterSlice";
+
 import styles from "./Counter.module.css";
 
 const Counter: React.FC = (): JSX.Element => {
@@ -29,7 +31,9 @@ const Counter: React.FC = (): JSX.Element => {
         >
           -
         </button>
-        <span className={styles.value}>{count}</span>
+        <span className={styles.value} data-test="counter">
+          {count}
+        </span>
         <button
           type="button"
           className={styles.button}
@@ -66,6 +70,13 @@ const Counter: React.FC = (): JSX.Element => {
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
           Add If Odd
+        </button>
+        <button
+          type="button"
+          className={styles.button}
+          onClick={() => dispatch(resetCounter())}
+        >
+          Reset counter
         </button>
       </div>
     </div>
