@@ -1,0 +1,11 @@
+{
+  "verbose": true,
+  "collectCoverage": true,
+  "testEnvironment": "jsdom",
+  "preset": "ts-jest",
+  "moduleDirectories": ["node_modules", "src"],
+  "moduleNameMapper": {
+    ".+\\.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+  },
+  "setupFilesAfterEnv": ["<rootDir>/src/setupTests.ts"]
+}

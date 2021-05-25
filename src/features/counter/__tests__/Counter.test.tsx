@@ -1,7 +1,8 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "app/store";
+import renderer from "react-test-renderer";
 import Counter from "../Counter";
 
 describe("renders counter element", () => {
@@ -46,12 +47,14 @@ describe("renders counter element", () => {
   });
 
   it("make a snapshot should be ok", () => {
-    const { asFragment } = render(
-      <Provider store={store}>
-        <Counter />
-      </Provider>
-    );
+    const treeView = renderer
+      .create(
+        <Provider store={store}>
+          <Counter />
+        </Provider>
+      )
+      .toJSON();
 
-    expect(asFragment()).toMatchSnapshot();
+    expect(treeView).toMatchSnapshot();
   });
 });
