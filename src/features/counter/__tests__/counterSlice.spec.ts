@@ -26,7 +26,7 @@ describe("counter reducer", () => {
 
   it("should handle decrement", () => {
     const actual = counterReducer(initialState, decrement());
-    expect(actual.value).toEqual(3);
+    expect(actual.value).toEqual(2);
   });
 
   it("should handle incrementByAmount", () => {
