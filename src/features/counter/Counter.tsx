@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
@@ -8,6 +8,7 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
+  selectStatus,
   resetCounter,
 } from "./counterSlice";
 
@@ -15,10 +16,16 @@ import styles from "./Counter.module.css";
 
 const Counter: React.FC = (): JSX.Element => {
   const count = useAppSelector(selectCount);
+  const loading = useAppSelector(selectStatus);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState("2");
 
   const incrementValue = Number(incrementAmount) || 0;
+
+  useEffect(() => {
+    if (loading === "loading") alert("loading");
+    if (loading === "failed") alert("failed");
+  }, [loading]);
 
   return (
     <div>
