@@ -23,8 +23,8 @@ const Counter: React.FC = (): JSX.Element => {
   const incrementValue = Number(incrementAmount) || 0;
 
   useEffect(() => {
-    if (loading === "loading") alert("loading");
-    if (loading === "failed") alert("failed");
+    if (loading === "loading") console.log("loading");
+    if (loading === "failed") console.error("failed");
   }, [loading]);
 
   return (
